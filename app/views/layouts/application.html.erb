@@ -5,6 +5,7 @@
       <%= t(".title") %>
       &mdash;
       <%= yield(:page_title).present? ? yield(:page_title) : yield(:title) %>
+      | The Curve
     </title>
 
     <meta content="text/html; charset=utf-8" http-equiv="content-type">
@@ -56,6 +57,8 @@
     </div>
 
     <div id="footer">
+      <%= link_to "The Curve", "https://thecurve.io", target: "_blank" %>
+      &middot;
       <%= t(".powered_html", link: link_to(t(".errbit"), "https://github.com/errbit/errbit", target: "_blank")) %>
       <br>
       <%= Errbit::Version %>-tccs
