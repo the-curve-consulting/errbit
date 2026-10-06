@@ -1,27 +1,26 @@
 td.header {
   padding: 10px 20px 8px 20px;
   height: 70px;
-  background-color: #11112f;
+  background-color: #ffffff;
   text-align: left;
-  border-bottom: 1px solid #ccccee;
+  border-bottom: 1px solid #e3e6ec;
 }
 
 td.header a {
   display: block;
-  height: 31px;
-  width: 88px;
+  height: 28px;
+  width: 251px;
   margin-top: 4px;
 }
 
 /* Style 'Errbit' logo alt text if image cannot be loaded. */
 td.header a img {
   border: none;
-  color: #E3E3E3;
+  color: #14244b;
   font-family: helvetica;
   font-size: 30px;
   font-weight: bold;
-  min-height: 31px;
-  text-shadow: 0 1px 0 #EEEEFF;
+  min-height: 28px;
 }
 
 td.section, td.content, td.footer {

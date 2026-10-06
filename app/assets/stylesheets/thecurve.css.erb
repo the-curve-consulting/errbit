@@ -1,0 +1,242 @@
+/*
+ * The Curve branding, layered over upstream errbit.css so upstream style
+ * changes merge cleanly. Palette matches the apv-app-* projects.
+ */
+:root {
+  --navy: #14244b;
+  /* Brand red is decorative only: it is 4.1:1 on white, below WCAG AA for
+     text. Text and white-on-red controls use --red-dark (5.8:1). */
+  --red: #ee2b52;
+  --red-dark: #be2b48;
+  --red-darker: #9e2340;
+  --teal: #12bdc5;
+  --focus: #0c7d83;
+  --grey: #5a6b90;
+  --off-white: #f9f7f7;
+  --line: #e3e6ec;
+  --input-line: #c9cfdb;
+  --good: #088008;
+  --critical: #d03b3b;
+}
+
+html {
+  color: var(--navy);
+  background-color: var(--off-white);
+  font-family: Geomanist, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 { border-bottom-color: var(--line); }
+h1 { text-shadow: none; }
+
+a, a:visited, a:hover { color: var(--red-dark); }
+a:hover { color: var(--red-darker); }
+
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+/* Header: white bar, logo and session links on top, nav pills below */
+#header {
+  height: 112px;
+  background: #fff;
+  border-bottom: 1px solid var(--line);
+}
+#header > div { height: 112px; }
+#header #site-name {
+  width: 251px;
+  height: 28px;
+  top: 20px;
+  left: 0;
+  background: transparent url(<%= asset_path "images/thecurve-logo.svg" %>) 0 0 / 251px 28px no-repeat;
+}
+#header #site-name:focus-visible { outline-offset: 6px; }
+
+#header #session-links { top: 18px; }
+#header #session-links li {
+  color: var(--navy);
+  background-color: transparent;
+  border: 2px solid var(--navy);
+  border-radius: 50rem;
+  font-weight: 600;
+}
+#header #session-links a { color: var(--navy); line-height: 28px; height: 28px; }
+#header #session-links li:hover { background-color: var(--navy); box-shadow: none; }
+#header #session-links li:hover a { color: #fff; }
+#header #session-links #sign-out i { color: var(--red); }
+
+#nav-bar { left: 0; bottom: 14px; }
+#nav-bar li {
+  height: auto;
+  margin-right: 8px;
+  background: transparent;
+  border: 0;
+  border-radius: 50rem;
+}
+#nav-bar li a {
+  color: var(--grey);
+  padding: 0 16px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 34px;
+  height: 34px;
+  text-shadow: none;
+}
+#nav-bar li:not(.active):hover { background-color: var(--off-white); box-shadow: none; }
+#nav-bar li:not(.active):hover a { color: var(--navy); }
+#nav-bar li.active {
+  height: auto;
+  margin-bottom: 0;
+  background: var(--navy);
+  border: 0;
+}
+#nav-bar li.active a { color: #fff; }
+
+/* Content */
+#content-wrapper {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 1.25rem;
+  overflow: hidden;
+}
+#content-title, #content-comments {
+  border-top: 0;
+  border-bottom: 0;
+  background-color: #fff;
+}
+#content-title.err_show.resolved { background-color: #e7f6e7; }
+#content-title h1, #content-comments h3 {
+  color: var(--navy);
+  font-family: inherit;
+  font-weight: 300;
+}
+#content-title .meta { color: var(--grey); }
+#content { border-top: 1px solid var(--line); }
+
+/* Pill buttons: red primary, navy outline secondary */
+#action-bar span,
+form div.buttons {
+  background: transparent;
+  border: 2px solid var(--navy);
+  border-radius: 50rem;
+}
+#action-bar span a,
+form div.buttons input, form div.buttons button {
+  color: var(--navy);
+  font-weight: 600;
+  text-shadow: none;
+}
+#action-bar span a { line-height: 36px; height: 36px; }
+#action-bar span:hover,
+form div.buttons:hover {
+  background: var(--navy);
+  box-shadow: none;
+}
+#action-bar span:hover a,
+form div.buttons:hover input, form div.buttons:hover button { color: #fff; }
+
+/* Form submit buttons are the primary action */
+form div.buttons { background: var(--red-dark); border-color: var(--red-dark); }
+form div.buttons:hover { background: var(--red-darker); border-color: var(--red-darker); }
+form div.buttons input, form div.buttons button { color: #fff; }
+
+form input[type=submit] {
+  padding: 10px 22px;
+  font-size: 1em;
+  font-weight: 600;
+  text-transform: none;
+  background-color: var(--red-dark);
+  border: 2px solid var(--red-dark);
+  border-radius: 50rem;
+}
+form input[type=submit]:hover { background-color: var(--red-darker); border-color: var(--red-darker); }
+
+input[type="submit"].button,
+a.button {
+  color: var(--navy);
+  background-color: transparent;
+  border: 2px solid var(--navy);
+  border-radius: 50rem;
+  font-weight: 600;
+  text-shadow: none;
+}
+input[type="submit"]:hover.button,
+a:hover.button {
+  color: #fff;
+  background-color: var(--navy);
+  box-shadow: none;
+}
+a.button.active {
+  color: #fff;
+  background-color: var(--navy);
+  border-color: var(--navy);
+}
+#content .tab-bar a.button.active {
+  color: var(--navy);
+  background: #fff;
+  border-color: var(--line);
+}
+
+/* Forms */
+form fieldset {
+  background-color: var(--off-white);
+  border-color: var(--line);
+}
+form fieldset legend { color: var(--navy); }
+form label { color: var(--navy); font-weight: 600; }
+form .required label:after { color: var(--red); }
+form input[type=text], form input[type=password], form input[type=email], form textarea {
+  color: var(--navy);
+  border: 1px solid var(--input-line);
+  border-radius: .5rem;
+}
+form input[type=text]:focus, form input[type=password]:focus, form input[type=email]:focus, form textarea:focus {
+  box-shadow: none;
+}
+form input[type=checkbox]:focus + label { color: var(--focus); }
+
+/* Tables */
+table { border-color: var(--line); border-radius: .75rem; }
+table th, table td { border-top-color: var(--line); }
+table thead + tbody tr:first-child td { border-top-color: var(--line); }
+table th {
+  color: var(--grey);
+  background-color: #fff;
+  font-size: .85em;
+  font-weight: 600;
+  letter-spacing: .04em;
+}
+table th a, table th a:visited { color: var(--grey); }
+table td a, table td a:visited { color: var(--navy); font-weight: 600; }
+table th a:hover, table td a:hover { color: var(--red-dark); }
+table.errs td.app .environment, table.errs td.app .environment a { color: var(--grey); font-weight: 400; }
+table tbody tr:nth-child(odd) td { background-color: var(--off-white); }
+table.apps tbody tr:hover td, table.errs tbody tr:hover td { background-color: #f1f2f6; }
+
+.count a {
+  background-color: var(--red-dark);
+  border-color: var(--red-darker);
+  opacity: 1;
+}
+.count a:hover { background-color: var(--red-darker); }
+.count a.resolved { background-color: var(--good); border-color: #066006; }
+
+.spark { border-color: var(--line); border-radius: 4px; }
+.spark > i { background: var(--navy); }
+
+/* Flash messages */
+#flash-messages li { border-radius: .75rem; border-color: var(--line); }
+#flash-messages li.notice { background-color: #e3f7f8; border-color: var(--teal); }
+#flash-messages li.error { background-color: #fdecef; border-color: #f6c1cb; }
+
+/* Backtraces and raw data keep a dark panel, in brand navy */
+.raw_data, table.backtrace, table.backtrace td,
+table.backtrace tr:nth-child(2n+1) td { background-color: var(--navy); }
+table.backtrace td.line.in-app { background-color: #1d3060; }
+.window { border-color: var(--line); border-radius: .75rem; }
+
+/* Footer */
+#footer { color: var(--grey); }
+#footer a { color: var(--grey); text-decoration: underline; }
+#footer a:hover { color: var(--navy); }
