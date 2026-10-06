@@ -4,14 +4,18 @@
  */
 :root {
   --navy: #14244b;
+  /* Brand red is decorative only: it is 4.1:1 on white, below WCAG AA for
+     text. Text and white-on-red controls use --red-dark (5.8:1). */
   --red: #ee2b52;
   --red-dark: #be2b48;
+  --red-darker: #9e2340;
   --teal: #12bdc5;
-  --grey: #66779b;
+  --focus: #0c7d83;
+  --grey: #5a6b90;
   --off-white: #f9f7f7;
   --line: #e3e6ec;
   --input-line: #c9cfdb;
-  --good: #0ca30c;
+  --good: #088008;
   --critical: #d03b3b;
 }
 
@@ -25,11 +29,11 @@ html {
 h1, h2, h3, h4, h5, h6 { border-bottom-color: var(--line); }
 h1 { text-shadow: none; }
 
-a, a:visited, a:hover { color: var(--red); }
-a:hover { color: var(--red-dark); }
+a, a:visited, a:hover { color: var(--red-dark); }
+a:hover { color: var(--red-darker); }
 
 a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible {
-  outline: 2px solid var(--teal);
+  outline: 2px solid var(--focus);
   outline-offset: 2px;
 }
 
@@ -133,8 +137,8 @@ form div.buttons:hover {
 form div.buttons:hover input, form div.buttons:hover button { color: #fff; }
 
 /* Form submit buttons are the primary action */
-form div.buttons { background: var(--red); border-color: var(--red); }
-form div.buttons:hover { background: var(--red-dark); border-color: var(--red-dark); }
+form div.buttons { background: var(--red-dark); border-color: var(--red-dark); }
+form div.buttons:hover { background: var(--red-darker); border-color: var(--red-darker); }
 form div.buttons input, form div.buttons button { color: #fff; }
 
 form input[type=submit] {
@@ -142,11 +146,11 @@ form input[type=submit] {
   font-size: 1em;
   font-weight: 600;
   text-transform: none;
-  background-color: var(--red);
-  border: 2px solid var(--red);
+  background-color: var(--red-dark);
+  border: 2px solid var(--red-dark);
   border-radius: 50rem;
 }
-form input[type=submit]:hover { background-color: var(--red-dark); border-color: var(--red-dark); }
+form input[type=submit]:hover { background-color: var(--red-darker); border-color: var(--red-darker); }
 
 input[type="submit"].button,
 a.button {
@@ -190,7 +194,7 @@ form input[type=text], form input[type=password], form input[type=email], form t
 form input[type=text]:focus, form input[type=password]:focus, form input[type=email]:focus, form textarea:focus {
   box-shadow: none;
 }
-form input[type=checkbox]:focus + label { color: var(--teal); }
+form input[type=checkbox]:focus + label { color: var(--focus); }
 
 /* Tables */
 table { border-color: var(--line); border-radius: .75rem; }
@@ -205,18 +209,18 @@ table th {
 }
 table th a, table th a:visited { color: var(--grey); }
 table td a, table td a:visited { color: var(--navy); font-weight: 600; }
-table th a:hover, table td a:hover { color: var(--red); }
+table th a:hover, table td a:hover { color: var(--red-dark); }
 table.errs td.app .environment, table.errs td.app .environment a { color: var(--grey); font-weight: 400; }
 table tbody tr:nth-child(odd) td { background-color: var(--off-white); }
 table.apps tbody tr:hover td, table.errs tbody tr:hover td { background-color: #f1f2f6; }
 
 .count a {
-  background-color: var(--red);
-  border-color: var(--red-dark);
+  background-color: var(--red-dark);
+  border-color: var(--red-darker);
   opacity: 1;
 }
-.count a:hover { background-color: var(--red-dark); }
-.count a.resolved { background-color: var(--good); border-color: #088008; }
+.count a:hover { background-color: var(--red-darker); }
+.count a.resolved { background-color: var(--good); border-color: #066006; }
 
 .spark { border-color: var(--line); border-radius: 4px; }
 .spark > i { background: var(--navy); }
